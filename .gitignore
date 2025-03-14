@@ -1,0 +1,18 @@
+echo "node_modules/
+.DS_Store
+.env
+.vscode/
+*.log
+*.zip
+*.tar
+*.rar
+*.exe
+*.iso
+*.jar
+*.class
+*.o
+Git LFS/
+online-compiler-frontend/build/
+online-compiler-frontend/.next/
+online-compiler-frontend/node_modules/
+" > .gitignore
