@@ -6,11 +6,11 @@ const axios = require("axios");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// 🌐 JUDGE0 API Configuration
-const JUDGE0_API_URL = process.env.JUDGE0_API_URL || "https://ce.judge0.com"; 
+// ✅ Corrected Judge0 API URL for RapidAPI
+const JUDGE0_API_URL = "https://judge0-ce.p.rapidapi.com";
 
 app.use(cors());
-app.use(express.json()); // Parse JSON requests
+app.use(express.json());
 
 // ✅ Test Route
 app.get("/", (req, res) => {
@@ -22,18 +22,21 @@ app.post("/run", async (req, res) => {
     try {
         const { code, language_id, input } = req.body;
 
+        // ✅ Fixed API Headers (Include API Key)
+        const headers = {
+            "X-RapidAPI-Key": process.env.d4f7708ed0msh3d9086bf42eb6ddp1270a4jsnff0a6d0342aa, // Your RapidAPI Key
+            "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
+            "Content-Type": "application/json"
+        };
+
         const response = await axios.post(
             `${JUDGE0_API_URL}/submissions?base64_encoded=false&wait=true`,
             {
                 source_code: code,
                 language_id,
-                stdin: input,
+                stdin: input
             },
-            {
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            }
+            { headers }
         );
 
         res.json(response.data);
