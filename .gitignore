@@ -11,7 +11,3 @@ echo "node_modules/
 *.class
 *.o
 Git LFS/
-online-compiler-frontend/build/
-online-compiler-frontend/.next/
-online-compiler-frontend/node_modules/
-" > .gitignore
