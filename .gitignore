@@ -1,6 +1,5 @@
 echo "node_modules/
 .DS_Store
-.env
 .vscode/
 *.log
 *.zip
